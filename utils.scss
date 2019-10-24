@@ -1,0 +1,187 @@
+// General CSS utility classes
+$font-unit: 'pt';
+$dimension-unit: '%';
+$directions: ('t': 'top', 'b': 'bottom', 'l': 'left', 'r': 'right');
+$corners: ('tl': 'top-left', 'tr': 'top-right', 'bl': 'bottom-left', 'br': 'bottom-right');
+
+// Margin CSS classes
+//
+// Creates ma-* classes (all margins), where * is for margins 0 to 100px
+// Also creates:
+// mt-*, mb-*, ml-*, mr-* classes for directional margin
+// mh-* for horizontal margins
+// mv-* for vertical margins
+@for $size from 0 through 100 {
+    .ma-#{$size} {
+        margin: #{$size}px;
+    }
+}
+@each $direction-short, $direction in $directions {
+    @for $size from 0 through 100 {
+        .m#{$direction-short}-#{$size} {
+            margin-#{$direction}: #{$size}px;
+        }
+    }
+}
+@for $size from 0 through 100 {
+    .mh-#{$size} {
+        margin-left: #{$size}px;
+        margin-right: #{$size}px;
+    }
+    .mv-#{$size} {
+        margin-top: #{$size}px;
+        margin-bottom: #{$size}px;
+    }
+}
+
+
+// Padding CSS classes
+//
+// Creates pa-* classes (all padding), where * is for padding 0 to 100px
+// Also creates:
+// pt-*, pb-*, pl-*, pr-* classes for directional margin
+// ph-* for horizontal margins
+// pv-* for vertical margins
+@for $size from 0 through 100 {
+    .pa-#{$size} {
+        padding: #{$size}px;
+    }
+}
+@each $direction-short, $direction in $directions {
+    @for $size from 0 through 100 {
+        .p#{$direction-short}-#{$size} {
+            padding-#{$direction}: #{$size}px;
+        }
+    }
+}
+@for $size from 0 through 100 {
+    .ph-#{$size} {
+        padding-left: #{$size}px;
+        padding-right: #{$size}px;
+    }
+    .pv-#{$size} {
+        padding-top: #{$size}px;
+        padding-bottom: #{$size}px;
+    }
+}
+
+
+// Border width CSS classes
+//
+// Creates bw-* classes, where * is for border size 0 to 20px
+// Also creates bw-t-*, bw-b-*, bw-l-*, bw-r-* classes for directional borders
+@for $size from 0 through 20 {
+    .bw-#{$size} {
+        border-width: #{$size}px;
+    }
+}
+@each $direction-short, $direction in $directions {
+    @for $size from 0 through 20 {
+        .bw-#{$direction-short}-#{$size} {
+            border-#{$direction}-width: #{$size}px;
+        }
+    }
+}
+
+
+// Border radius CSS classes
+//
+// Creates br-* classes, where * is for border radius 0 to 20px
+// Also creates br-tl-*, br-tr-*, br-bl-*, br-br-* classes
+@for $size from 0 through 20 {
+    .br-#{$size} {
+        border-radius: #{$size}px;
+    }
+}
+@each $corner-short, $corner in $corners {
+    @for $size from 0 through 20 {
+        .br-#{$corner-short}-#{$size} {
+            border-#{$corner}-radius: #{$size}px;
+        }
+    }
+}
+
+
+// Border style CSS classes
+//
+.bs-solid {
+    border-style: solid;
+}
+.bs-dotted {
+    border-style: dotted;
+}
+
+
+// No border CSS classes
+//
+// nb, nb-t, nb-b, nb-l, nb-r
+.nb {
+    border: none;
+}
+@each $direction-short, $direction in $directions {
+    .nb-#{$direction-short} {
+        border-#{$direction}: none;
+    }
+}
+
+
+// Font CSS classes
+//
+// Font size classes, fs-*, where * is for font size 0 to 36px
+@for $size from 0 through 36 {
+    .fs-#{$size} {
+        font-size: #{$size}#{$font-unit};
+    }
+}
+
+// Font weight classes, fw-*, where * is lighter, normal, bold, bolder
+@each $weight in lighter, normal, bold, bolder {
+    .fw-#{$weight} {
+        font-weight: $weight;
+    }
+}
+// Other font classes, using font weight as numbers
+.fw-100 { font-weight: 100; }
+.fw-200 { font-weight: 200; }
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
+
+
+// Line height lh-*, where * is for line height 0 to 36px
+@for $size from 0 through 36 {
+    .lh-#{$size} {
+        line-height: #{$size}#{$font-unit};
+    }
+}
+
+
+// Width CSS classes
+.w1 { width: 1rem; }
+.w2 { width: 2rem; }
+.w3 { width: 4rem; }
+.w4 { width: 8rem; }
+.w5 { width: 16rem; }
+
+@for $size from 1 through 100 {
+    .w-#{$size} {
+        width: #{$size}#{$dimension-unit};
+    }
+}
+
+// Height CSS classes
+.h1 { height: 1rem; }
+.h2 { height: 2rem; }
+.h3 { height: 4rem; }
+.h4 { height: 8rem; }
+.h5 { height: 16rem; }
+
+@for $size from 1 through 100 {
+    .h-#{$size} {
+        height: #{$size}#{$dimension-unit};
+    }
+}
